@@ -1,0 +1,5 @@
+build:
+  docker:
+    Altron: Dockerfile
+run:
+  Python: python3 -m main.py
