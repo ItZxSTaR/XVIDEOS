@@ -6,3 +6,4 @@ psycopg2
 gitpython
 asyncio
 telegraph
+Pillow
