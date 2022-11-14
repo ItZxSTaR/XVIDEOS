@@ -48,11 +48,7 @@ async def alt_cmd(event):
         TEXT += f"» **ᴄᴏɴᴛᴇɴᴛ ᴘʀᴏᴠɪᴅᴇʀ​ : [𝐒ʜᴀᴜʀʏᴀ](https://t.me/YwR_CrUsH_SHaUrYa_xD)**\n"
         TEXT += f"» **ʙᴏᴛ ᴠᴇʀsɪᴏɴ :** `X1.0`\n"
         TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{telethon.__version__}`\n━━━━━━━━━━━━━━━━━"
-        await event.client.send_file(
-                event.chat_id,
-                "https://te.legra.ph/file/07d39b85c6cea32f15259.jpg",
-                caption=TEXT, 
-                buttons=PythonButton)
+        await event.edit(TEXT, buttons=PythonButton)
 
 @Altron.on(events.CallbackQuery(pattern=r"alt_cmd"))
 async def back(event):
