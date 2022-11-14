@@ -4,7 +4,8 @@ from config import Altron
 
 CmdMsg = f"""
 **» ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ:**
-   ➲ /video : ᴛᴏ ɢᴇᴛ ꜱᴇxʏ ɢɪʀʟꜱ ᴠɪᴅᴇᴏ 🖤
+   ➲ /video : ᴛᴏ ɢᴇᴛ ꜱᴇxʏ ɢɪʀʟꜱ ᴠɪᴅᴇᴏ
+   ➲ /addvideo : ᴛᴏ ᴀᴅᴅ ꜱᴇxʏ ᴍᴇᴅɪᴀ ɪɴ ᴛʜɪꜱ ʙᴏᴛ
 
 **© @ItzExStar**
 """
