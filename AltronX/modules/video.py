@@ -6,9 +6,10 @@ from telegraph import Telegraph, exceptions, upload_file
 
 from AltronX.data import XVIDEOS
 from config import Altron
-from telethon import events
+from telethon import events, Button
 
 
+VideoURL = ""
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="Altron")
 auth_url = r["auth_url"]
@@ -24,9 +25,9 @@ async def video(event):
 @Altron.on(events.NewMessage(pattern="/addvideo"))
 async def addvideo(event):
     EventText = event.text.split(" ")
-    VideoURL = ""
 
-    if len(EventText) >= 2:
+    global VideoURL
+    if (len(EventText) >= 2) and (EventText[1].startswith("https://")):
         VideoURL = EventText[1]
 
     elif event.reply_to_msg_id:
@@ -48,13 +49,17 @@ async def addvideo(event):
         await event.reply(f"𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: 𝗔𝗱𝗱𝗩𝗶𝗱𝗲𝗼\n  » /addvideo <telegra.ph url>\n  » /addvideo <reply to a Media>")
         return
 
-    XVIDEOS.append(VideoURL)
-
 
     TEXT = f"**#ᴠɪᴅᴇᴏ : @ItzExStar**\n\n**ʙʏ ᴜꜱᴇʀ:** [{event.sender.first_name}](tg://user?id={event.sender.id})\n**ᴠɪᴅᴇᴏ ᴜʀʟ:** {VideoURL}"
     await event.client.send_file(-1001881521235,
-                "https://te.legra.ph/file/8cdbbabea5471d5e88f8a.mp4",
-                caption=TEXT
+                "https://te.legra.ph/file/bd33eba4a7d74809df620.mp4",
+                caption=TEXT,
+                buttons=[
+                    [
+                    Button.inline("✅ ᴀᴅᴅ ᴠɪᴅᴇᴏ", data="addvideo"),
+                    Button.inline("❌ ᴄᴀɴᴄᴇʟ", data="cancel")
+                    ],
+                ]
                 )
     await event.reply(f"» ʏᴏᴜʀ ᴠɪᴅᴇᴏ ᴜʀʟ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴅᴇᴅ ᴛᴏ ᴏᴜʀ [ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ](https://t.me/TheExVideos)")
 
@@ -62,3 +67,13 @@ async def addvideo(event):
 def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
+
+
+@Altron.on(events.CallbackQuery(pattern=r"addvideo"))
+async def addvid(event):
+    XVIDEOS.append(VideoURL)
+    await event.reply(f"» ᴠɪᴅᴇᴏ ᴀᴅᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!\n\n**ᴠɪᴅᴇᴏ-ᴜʀʟ:** {VideoURL}")
+
+@Altron.on(events.CallbackQuery(pattern=r"cancel"))
+async def cancel(event):
+    await event.edit(f"» ᴍᴇᴅɪᴀ ᴄᴀɴᴄᴇʟʟᴇᴅ!\n\n**ᴜʀʟ:** {VideoURL}")

@@ -4,3 +4,7 @@ XVIDEOS = [
     "https://te.legra.ph/file/1ab9cde9388117db9d26c.mp4",
     "https://te.legra.ph/file/75e49339469dbf9ad1dd2.mp4"
 ]
+
+XIMAGES = [
+
+]

@@ -2,10 +2,18 @@ import telethon
 from telethon import events, Button
 from config import Altron
 
+
 CmdMsg = f"""
 **» ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ:**
+
+𝗧𝗼 𝗚𝗲𝘁 𝗠𝗲𝗱𝗶𝗮:
+   ➲ /image : ᴛᴏ ɢᴇᴛ ꜱᴇxʏ ɢɪʀʟꜱ ɪᴍᴀɢᴇ
    ➲ /video : ᴛᴏ ɢᴇᴛ ꜱᴇxʏ ɢɪʀʟꜱ ᴠɪᴅᴇᴏ
-   ➲ /addvideo : ᴛᴏ ᴀᴅᴅ ꜱᴇxʏ ᴍᴇᴅɪᴀ ɪɴ ᴛʜɪꜱ ʙᴏᴛ
+
+𝗧𝗼 𝗔𝗱𝗱 𝗠𝗲𝗱𝗶𝗮:
+   ➲ /addimage : ᴛᴏ ᴀᴅᴅ ꜱᴇxʏ ɪᴍᴀɢᴇ ɪɴ ᴛʜɪꜱ ʙᴏᴛ
+   ➲ /addvideo : ᴛᴏ ᴀᴅᴅ ꜱᴇxʏ ᴠɪᴅᴇᴏ ɪɴ ᴛʜɪꜱ ʙᴏᴛ
+
 
 **© @ItzExStar**
 """
