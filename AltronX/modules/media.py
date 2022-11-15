@@ -81,20 +81,19 @@ def resize_image(image):
 
 @Altron.on(events.CallbackQuery(pattern=r"addvideo"))
 async def addvid(event):
-    if MediaURL not in XVIDEOS:
+    if (MediaURL not in XVIDEOS) and (len(MediaURL) > 0):
         XVIDEOS.append(MediaURL)
     await event.reply(f"» ᴠɪᴅᴇᴏ ᴀᴅᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!\n\n**ᴠɪᴅᴇᴏ-ᴜʀʟ:** `{MediaURL}`")
-    global MediaURL
     MediaURL = ""
 
 @Altron.on(events.CallbackQuery(pattern=r"addimage"))
-async def addvid(event):
-    if MediaURL not in XIMAGES:
+async def addimg(event):
+    if (MediaURL not in XIMAGES) and (len(MediaURL) > 0):
         XIMAGES.append(MediaURL)
     await event.reply(f"» ɪᴍᴀɢᴇ ᴀᴅᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!\n\n**ɪᴍᴀɢᴇ-ᴜʀʟ:** `{MediaURL}`")
-    global MediaURL
     MediaURL = ""
 
 @Altron.on(events.CallbackQuery(pattern=r"cancel"))
 async def cancel(event):
     await event.edit(f"» ᴍᴇᴅɪᴀ ᴄᴀɴᴄᴇʟʟᴇᴅ!\n\n**ᴜʀʟ:** {MediaURL}")
+    MediaURL = ""
