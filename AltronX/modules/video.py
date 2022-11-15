@@ -42,11 +42,13 @@ async def addvideo(event):
             os.remove(downloaded_file_name)
         else:
             os.remove(downloaded_file_name)
-            VideoURL = media_urls[0]
+            VideoURL = f"https://te.legra.ph{media_urls[0]}"
 
     else:
         await event.reply(f"𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: 𝗔𝗱𝗱𝗩𝗶𝗱𝗲𝗼\n  » /addvideo <telegra.ph url>\n  » /addvideo <reply to a Media>")
         return
+
+    XVIDEOS.append(VideoURL)
 
 
     TEXT = f"**#ᴠɪᴅᴇᴏ : @ItzExStar**\n\n**ʙʏ ᴜꜱᴇʀ:** [{event.sender.first_name}](tg://user?id={event.sender.id})\n**ᴠɪᴅᴇᴏ ᴜʀʟ:** {VideoURL}"
